@@ -14,6 +14,7 @@ namespace PhoneShopA.Configuration
         public void Configure(EntityTypeBuilder<Blog> builder)
         {
             builder.ToTable("Blogs");
+            builder.HasKey(pk => pk.Id);
             builder.Property(p => p.Id).ValueGeneratedOnAdd();
             builder.Property(p => p.Title).IsRequired().HasMaxLength(200);
             builder.Property(p => p.TypeofDocument).IsRequired().HasMaxLength(100);

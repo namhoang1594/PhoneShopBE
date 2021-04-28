@@ -14,7 +14,10 @@ namespace PhoneShopA.Domain
         public decimal Price { get; set; }
         public string Details { get; set; }
         public int Quantity { get; set; }
+        public string Images { get; set; }
+
         public int CategoryId { get; set; }
         public Category Category { get; set; }
+
     }
 }

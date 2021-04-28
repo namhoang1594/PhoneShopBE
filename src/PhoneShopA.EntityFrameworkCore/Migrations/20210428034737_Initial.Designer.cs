@@ -10,7 +10,7 @@ using PhoneShopA.EntityFrameworkCore;
 namespace PhoneShopA.Migrations
 {
     [DbContext(typeof(PhoneShopADbContext))]
-    [Migration("20210419025944_Initial")]
+    [Migration("20210428034737_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -1529,25 +1529,17 @@ namespace PhoneShopA.Migrations
 
             modelBuilder.Entity("PhoneShopA.Domain.Blog", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<DateTime>("CreationTime")
-                        .HasColumnType("timestamp without time zone");
-
-                    b.Property<long?>("CreatorUserId")
-                        .HasColumnType("bigint");
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<string>("Description")
                         .HasMaxLength(200)
                         .HasColumnType("character varying(200)");
 
-                    b.Property<DateTime?>("LastModificationTime")
-                        .HasColumnType("timestamp without time zone");
-
-                    b.Property<long?>("LastModifierUserId")
-                        .HasColumnType("bigint");
+                    b.Property<string>("Images")
+                        .HasColumnType("text");
 
                     b.Property<string>("MainContents")
                         .IsRequired()
@@ -1574,8 +1566,8 @@ namespace PhoneShopA.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("abb55ec2-ac3b-4a2a-bb47-25bf17a623c9"),
-                            CreationTime = new DateTime(2021, 4, 19, 9, 59, 42, 680, DateTimeKind.Local).AddTicks(6310),
+                            Id = 1,
+                            Images = "https://img.timviec.com.vn/2020/03/blog-la-gi2-696x418.jpg",
                             MainContents = "Nội dung chính nhiều dòng dòng dòng dòng dòng",
                             ShortContents = "Nội dung ngắn vài dòng",
                             Title = "Tin tức 1",
@@ -1583,8 +1575,8 @@ namespace PhoneShopA.Migrations
                         },
                         new
                         {
-                            Id = new Guid("c5f3b2c1-cd87-464b-9b86-0062086df729"),
-                            CreationTime = new DateTime(2021, 4, 19, 9, 59, 42, 682, DateTimeKind.Local).AddTicks(7130),
+                            Id = 2,
+                            Images = "https://img.timviec.com.vn/2020/03/blog-la-gi2-696x418.jpg",
                             MainContents = "Nội dung chính nhiều dòng dòng dòng dòng dòng",
                             ShortContents = "Nội dung ngắn vài dòng",
                             Title = "Tin tức 2",
@@ -1592,8 +1584,8 @@ namespace PhoneShopA.Migrations
                         },
                         new
                         {
-                            Id = new Guid("ceab8b18-a8a3-408a-9018-3aaa857c0971"),
-                            CreationTime = new DateTime(2021, 4, 19, 9, 59, 42, 682, DateTimeKind.Local).AddTicks(7187),
+                            Id = 3,
+                            Images = "https://img.timviec.com.vn/2020/03/blog-la-gi2-696x418.jpg",
                             MainContents = "Nội dung chính nhiều dòng dòng dòng dòng dòng",
                             ShortContents = "Nội dung ngắn vài dòng",
                             Title = "Tin tức 3",
@@ -1659,6 +1651,9 @@ namespace PhoneShopA.Migrations
                         .HasMaxLength(500)
                         .HasColumnType("character varying(500)");
 
+                    b.Property<string>("Images")
+                        .HasColumnType("text");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(200)
@@ -1684,6 +1679,7 @@ namespace PhoneShopA.Migrations
                             Id = 1,
                             CategoryId = 1,
                             Details = "Iphone quốc tế hàng chính hãng",
+                            Images = "https://cdn-www.vinid.net/2020/10/5835be9c-xiaomi-redmi-note-9s.jpg",
                             Name = "Iphone 10 ProMax",
                             Price = 32990000m,
                             Quantity = 100
@@ -1693,6 +1689,7 @@ namespace PhoneShopA.Migrations
                             Id = 2,
                             CategoryId = 2,
                             Details = "Iphone quốc tế hàng chính hãng",
+                            Images = "https://cdn-www.vinid.net/2020/10/5835be9c-xiaomi-redmi-note-9s.jpg",
                             Name = "Iphone 11 ProMax",
                             Price = 32990000m,
                             Quantity = 100
@@ -1702,6 +1699,7 @@ namespace PhoneShopA.Migrations
                             Id = 3,
                             CategoryId = 3,
                             Details = "Iphone quốc tế hàng chính hãng",
+                            Images = "https://cdn-www.vinid.net/2020/10/5835be9c-xiaomi-redmi-note-9s.jpg",
                             Name = "Iphone 12 ProMax",
                             Price = 32990000m,
                             Quantity = 100

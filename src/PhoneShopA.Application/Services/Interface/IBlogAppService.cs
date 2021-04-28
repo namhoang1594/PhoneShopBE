@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PhoneShopA.Services.Interface
 {
-    public interface IBlogAppService : IAsyncCrudAppService<BlogDto, Guid>
+    public interface IBlogAppService : IAsyncCrudAppService<BlogDto>
     {
     }
 }

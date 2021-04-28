@@ -449,16 +449,14 @@ namespace PhoneShopA.Migrations
                 name: "Blogs",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Title = table.Column<string>(type: "character varying(200)", maxLength: 200, nullable: false),
                     TypeofDocument = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
                     ShortContents = table.Column<string>(type: "character varying(200)", maxLength: 200, nullable: true),
                     MainContents = table.Column<string>(type: "text", nullable: false),
                     Description = table.Column<string>(type: "character varying(200)", maxLength: 200, nullable: true),
-                    CreationTime = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
-                    CreatorUserId = table.Column<long>(type: "bigint", nullable: true),
-                    LastModificationTime = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
-                    LastModifierUserId = table.Column<long>(type: "bigint", nullable: true)
+                    Images = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -817,6 +815,7 @@ namespace PhoneShopA.Migrations
                     Price = table.Column<decimal>(type: "numeric", nullable: false),
                     Details = table.Column<string>(type: "character varying(500)", maxLength: 500, nullable: true),
                     Quantity = table.Column<int>(type: "integer", nullable: false, defaultValue: 0),
+                    Images = table.Column<string>(type: "text", nullable: true),
                     CategoryId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
@@ -936,12 +935,12 @@ namespace PhoneShopA.Migrations
 
             migrationBuilder.InsertData(
                 table: "Blogs",
-                columns: new[] { "Id", "CreationTime", "CreatorUserId", "Description", "LastModificationTime", "LastModifierUserId", "MainContents", "ShortContents", "Title", "TypeofDocument" },
+                columns: new[] { "Id", "Description", "Images", "MainContents", "ShortContents", "Title", "TypeofDocument" },
                 values: new object[,]
                 {
-                    { new Guid("abb55ec2-ac3b-4a2a-bb47-25bf17a623c9"), new DateTime(2021, 4, 19, 9, 59, 42, 680, DateTimeKind.Local).AddTicks(6310), null, null, null, null, "Nội dung chính nhiều dòng dòng dòng dòng dòng", "Nội dung ngắn vài dòng", "Tin tức 1", "tin-tuc" },
-                    { new Guid("c5f3b2c1-cd87-464b-9b86-0062086df729"), new DateTime(2021, 4, 19, 9, 59, 42, 682, DateTimeKind.Local).AddTicks(7130), null, null, null, null, "Nội dung chính nhiều dòng dòng dòng dòng dòng", "Nội dung ngắn vài dòng", "Tin tức 2", "tin-tuc" },
-                    { new Guid("ceab8b18-a8a3-408a-9018-3aaa857c0971"), new DateTime(2021, 4, 19, 9, 59, 42, 682, DateTimeKind.Local).AddTicks(7187), null, null, null, null, "Nội dung chính nhiều dòng dòng dòng dòng dòng", "Nội dung ngắn vài dòng", "Tin tức 3", "tin-tuc" }
+                    { 1, null, "https://img.timviec.com.vn/2020/03/blog-la-gi2-696x418.jpg", "Nội dung chính nhiều dòng dòng dòng dòng dòng", "Nội dung ngắn vài dòng", "Tin tức 1", "tin-tuc" },
+                    { 2, null, "https://img.timviec.com.vn/2020/03/blog-la-gi2-696x418.jpg", "Nội dung chính nhiều dòng dòng dòng dòng dòng", "Nội dung ngắn vài dòng", "Tin tức 2", "tin-tuc" },
+                    { 3, null, "https://img.timviec.com.vn/2020/03/blog-la-gi2-696x418.jpg", "Nội dung chính nhiều dòng dòng dòng dòng dòng", "Nội dung ngắn vài dòng", "Tin tức 3", "tin-tuc" }
                 });
 
             migrationBuilder.InsertData(
@@ -956,12 +955,12 @@ namespace PhoneShopA.Migrations
 
             migrationBuilder.InsertData(
                 table: "Products",
-                columns: new[] { "Id", "CategoryId", "Description", "Details", "Name", "Price", "Quantity" },
+                columns: new[] { "Id", "CategoryId", "Description", "Details", "Images", "Name", "Price", "Quantity" },
                 values: new object[,]
                 {
-                    { 1, 1, null, "Iphone quốc tế hàng chính hãng", "Iphone 10 ProMax", 32990000m, 100 },
-                    { 2, 2, null, "Iphone quốc tế hàng chính hãng", "Iphone 11 ProMax", 32990000m, 100 },
-                    { 3, 3, null, "Iphone quốc tế hàng chính hãng", "Iphone 12 ProMax", 32990000m, 100 }
+                    { 1, 1, null, "Iphone quốc tế hàng chính hãng", "https://cdn-www.vinid.net/2020/10/5835be9c-xiaomi-redmi-note-9s.jpg", "Iphone 10 ProMax", 32990000m, 100 },
+                    { 2, 2, null, "Iphone quốc tế hàng chính hãng", "https://cdn-www.vinid.net/2020/10/5835be9c-xiaomi-redmi-note-9s.jpg", "Iphone 11 ProMax", 32990000m, 100 },
+                    { 3, 3, null, "Iphone quốc tế hàng chính hãng", "https://cdn-www.vinid.net/2020/10/5835be9c-xiaomi-redmi-note-9s.jpg", "Iphone 12 ProMax", 32990000m, 100 }
                 });
 
             migrationBuilder.CreateIndex(

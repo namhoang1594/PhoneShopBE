@@ -12,12 +12,14 @@ namespace PhoneShopA.Services.Dto
 {
     [AutoMapFrom(typeof(Blog))]
     [AutoMapTo(typeof(Blog))]
-    public class BlogDto : AuditedEntityDto<Guid>
+    public class BlogDto : EntityDto<int>
     {
         public string Title { get; set; }
         public string TypeofDocument { get; set; }
         public string ShortContents { get; set; }
         public string MainContents { get; set; }
         public string Description { get; set; }
+        //public IFormFile Images { get; set; }
+        public string Images { get; set; }
     }
 }

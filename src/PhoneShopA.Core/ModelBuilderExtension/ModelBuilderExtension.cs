@@ -20,6 +20,7 @@ namespace PhoneShopA.ModelBuilderExtension
                     Price = 32990000,
                     Details = "Iphone quốc tế hàng chính hãng",
                     Quantity = 100,
+                    Images = "https://cdn-www.vinid.net/2020/10/5835be9c-xiaomi-redmi-note-9s.jpg",
                     CategoryId = 1,
                 },
                 new Product()
@@ -29,6 +30,7 @@ namespace PhoneShopA.ModelBuilderExtension
                     Price = 32990000,
                     Details = "Iphone quốc tế hàng chính hãng",
                     Quantity = 100,
+                    Images = "https://cdn-www.vinid.net/2020/10/5835be9c-xiaomi-redmi-note-9s.jpg",
                     CategoryId = 2,
                 },
                 new Product()
@@ -38,6 +40,7 @@ namespace PhoneShopA.ModelBuilderExtension
                     Price = 32990000,
                     Details = "Iphone quốc tế hàng chính hãng",
                     Quantity = 100,
+                    Images = "https://cdn-www.vinid.net/2020/10/5835be9c-xiaomi-redmi-note-9s.jpg",
                     CategoryId = 3,
                 });
             modelBuilder.Entity<Category>().HasData(
@@ -62,27 +65,32 @@ namespace PhoneShopA.ModelBuilderExtension
             modelBuilder.Entity<Blog>().HasData(
                 new Blog()
                 {
-                    Id = new Guid("ABB55EC2-AC3B-4A2A-BB47-25BF17A623C9"),
+                    Id = 1,
                     Title = "Tin tức 1",
                     TypeofDocument = "tin-tuc",
                     ShortContents = "Nội dung ngắn vài dòng",
                     MainContents = "Nội dung chính nhiều dòng dòng dòng dòng dòng",
+                    Images = "https://img.timviec.com.vn/2020/03/blog-la-gi2-696x418.jpg",
                 },
                 new Blog()
                 {
-                    Id = new Guid("C5F3B2C1-CD87-464B-9B86-0062086DF729"),
+                    Id = 2,
                     Title = "Tin tức 2",
                     TypeofDocument = "tin-tuc",
                     ShortContents = "Nội dung ngắn vài dòng",
                     MainContents = "Nội dung chính nhiều dòng dòng dòng dòng dòng",
+                    Images = "https://img.timviec.com.vn/2020/03/blog-la-gi2-696x418.jpg",
+
                 },
                 new Blog()
                 {
-                    Id = new Guid("CEAB8B18-A8A3-408A-9018-3AAA857C0971"),
+                    Id = 3,
                     Title = "Tin tức 3",
                     TypeofDocument = "tin-tuc",
                     ShortContents = "Nội dung ngắn vài dòng",
                     MainContents = "Nội dung chính nhiều dòng dòng dòng dòng dòng",
+                    Images = "https://img.timviec.com.vn/2020/03/blog-la-gi2-696x418.jpg",
+
                 });
         }
     }
